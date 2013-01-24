@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="BusEvents.asmx.cs" Class="JUTCWebService.BusEvents" %>

@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="JUTC" Class="JUTCDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=JUTC;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="JUTCConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Buses" Member="Buses">
+    <Type Name="Buse">
+      <Column Name="LicensePlate" Type="System.String" DbType="VarChar(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BusStatus" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="SeatCap" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Buse_BusRoute" Member="BusRoute" ThisKey="LicensePlate" OtherKey="BusLicPlate" Type="BusRoute" Cardinality="One" />
+      <Association Name="Buse_StopsLog" Member="StopsLogs" ThisKey="LicensePlate" OtherKey="BusLicPlate" Type="StopsLog" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TravelRoutes" Member="TravelRoutes">
+    <Type Name="TravelRoute">
+      <Column Name="RouteNo" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RouteStops" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="RouteDistances" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="TotalDistance" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="TripTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TravelRoute_BusRoute" Member="BusRoutes" ThisKey="RouteNo" OtherKey="RouteNo" Type="BusRoute" />
+      <Association Name="TravelRoute_PassengerNotice" Member="PassengerNotices" ThisKey="RouteNo" OtherKey="RouteNo" Type="PassengerNotice" />
+      <Association Name="TravelRoute_StopsLog" Member="StopsLogs" ThisKey="RouteNo" OtherKey="RouteNo" Type="StopsLog" />
+      <Association Name="TravelRoute_TimeTable" Member="TimeTables" ThisKey="RouteNo" OtherKey="RouteNo" Type="TimeTable" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BusRoute" Member="BusRoutes">
+    <Type Name="BusRoute">
+      <Column Name="BusLicPlate" Type="System.String" DbType="VarChar(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RouteNo" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="TabledTime" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="DistToFinalStop" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="DistToNextStop" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="SpdAtStops" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="AvgSpeed" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="StopsToGo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NextStop" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="LastStop" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="ETANextStop" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ETAFinalStop" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Buse_BusRoute" Member="Buse" ThisKey="BusLicPlate" OtherKey="LicensePlate" Type="Buse" IsForeignKey="true" />
+      <Association Name="TravelRoute_BusRoute" Member="TravelRoute" ThisKey="RouteNo" OtherKey="RouteNo" Type="TravelRoute" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Driver" Member="Drivers">
+    <Type Name="Driver">
+      <Column Name="IDNo" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="TRN" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="StreetAddress" Type="System.String" DbType="VarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="Parish" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PassengerNotice" Member="PassengerNotices">
+    <Type Name="PassengerNotice">
+      <Column Name="UserName" Type="System.String" DbType="VarChar(25) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StopNo" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RouteNo" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TabledTime" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="CellNo" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="TravelRoute_PassengerNotice" Member="TravelRoute" ThisKey="RouteNo" OtherKey="RouteNo" Type="TravelRoute" IsForeignKey="true" />
+      <Association Name="Stop_PassengerNotice" Member="Stop" ThisKey="StopNo" OtherKey="StopNo" Type="Stop" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PhoneMessages" Member="PhoneMessages">
+    <Type Name="PhoneMessage">
+      <Column Name="UserName" Type="System.String" DbType="VarChar(25) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Time" Type="System.DateTime" DbType="DateTime NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Message" Type="System.String" DbType="VarChar(140) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Stops" Member="Stops">
+    <Type Name="Stop">
+      <Column Name="StopNo" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Lattitude" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Longitude" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Location" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="Stop_PassengerNotice" Member="PassengerNotices" ThisKey="StopNo" OtherKey="StopNo" Type="PassengerNotice" />
+      <Association Name="Stop_StopsLog" Member="StopsLogs" ThisKey="StopNo" OtherKey="StopNo" Type="StopsLog" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StopsLog" Member="StopsLogs">
+    <Type Name="StopsLog">
+      <Column Name="LogNo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RouteNo" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="StopNo" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="StopDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="BusLicPlate" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="TabledTime" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Association Name="Buse_StopsLog" Member="Buse" ThisKey="BusLicPlate" OtherKey="LicensePlate" Type="Buse" IsForeignKey="true" />
+      <Association Name="TravelRoute_StopsLog" Member="TravelRoute" ThisKey="RouteNo" OtherKey="RouteNo" Type="TravelRoute" IsForeignKey="true" />
+      <Association Name="Stop_StopsLog" Member="Stop" ThisKey="StopNo" OtherKey="StopNo" Type="Stop" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TimeTable" Member="TimeTables">
+    <Type Name="TimeTable">
+      <Column Name="RouteNo" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Time" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Day" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="TravelRoute_TimeTable" Member="TravelRoute" ThisKey="RouteNo" OtherKey="RouteNo" Type="TravelRoute" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.DeleteBusRoute" Method="DeleteBusRoute">
+    <Parameter Name="BusLicPlate" Parameter="busLicPlate" Type="System.String" DbType="VarChar(6)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SelectTrackedBuses" Method="SelectTrackedBuses">
+    <ElementType Name="SelectTrackedBusesResult">
+      <Column Name="LicensePlate" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BusStatus" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="SeatCap" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.InsertBus" Method="InsertBus">
+    <Parameter Name="LicensePlate" Parameter="licensePlate" Type="System.String" DbType="VarChar(6)" />
+    <Parameter Name="Type" Parameter="type" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="SeatCap" Parameter="seatCap" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsertBusRoute" Method="InsertBusRoute">
+    <Parameter Name="RouteNo" Parameter="routeNo" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="BusLicPlate" Parameter="busLicPlate" Type="System.String" DbType="VarChar(6)" />
+    <Parameter Name="TabledTime" Parameter="tabledTime" Type="System.String" DbType="VarChar(7)" />
+    <Parameter Name="DistToFinalStop" Parameter="distToFinalStop" Type="System.Double" DbType="Float" />
+    <Parameter Name="DistToNextStop" Parameter="distToNextStop" Type="System.Double" DbType="Float" />
+    <Parameter Name="SpdAtStops" Parameter="spdAtStops" Type="System.String" DbType="VarChar(350)" />
+    <Parameter Name="AvgSpeed" Parameter="avgSpeed" Type="System.Double" DbType="Float" />
+    <Parameter Name="StopsToGo" Parameter="stopsToGo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NextStop" Parameter="nextStop" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="LastStop" Parameter="lastStop" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="ETANextStop" Parameter="eTANextStop" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ETAFinalStop" Parameter="eTAFinalStop" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsertPassengerNotice" Method="InsertPassengerNotice">
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="VarChar(25)" />
+    <Parameter Name="StopNo" Parameter="stopNo" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="RouteNo" Parameter="routeNo" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="TabledTime" Parameter="tabledTime" Type="System.String" DbType="VarChar(7)" />
+    <Parameter Name="CellNo" Parameter="cellNo" Type="System.String" DbType="VarChar(7)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsertPhoneMessage" Method="InsertPhoneMessage">
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="VarChar(25)" />
+    <Parameter Name="Time" Parameter="time" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Message" Parameter="message" Type="System.String" DbType="VarChar(140)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsertRoute" Method="InsertRoute">
+    <Parameter Name="RouteNo" Parameter="routeNo" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="RouteStops" Parameter="routeStops" Type="System.String" DbType="VarChar(350)" />
+    <Parameter Name="RouteDistances" Parameter="routeDistances" Type="System.String" DbType="VarChar(350)" />
+    <Parameter Name="TotalDistance" Parameter="totalDistance" Type="System.Double" DbType="Float" />
+    <Parameter Name="TripTime" Parameter="tripTime" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsertStop" Method="InsertStop">
+    <Parameter Name="StopNo" Parameter="stopNo" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="Lattitude" Parameter="lattitude" Type="System.Double" DbType="Float" />
+    <Parameter Name="Longitude" Parameter="longitude" Type="System.Double" DbType="Float" />
+    <Parameter Name="Location" Parameter="location" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="Type" Parameter="type" Type="System.String" DbType="VarChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsertStopLog" Method="InsertStopLog">
+    <Parameter Name="RouteNo" Parameter="routeNo" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="StopNo" Parameter="stopNo" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="StopDateTime" Parameter="stopDateTime" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="BusLicPlate" Parameter="busLicPlate" Type="System.String" DbType="VarChar(6)" />
+    <Parameter Name="TabledTime" Parameter="tabledTime" Type="System.String" DbType="VarChar(7)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SelectAllStops" Method="SelectAllStops">
+    <ElementType Name="SelectAllStopsResult">
+      <Column Name="StopNo" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Lattitude" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Longitude" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Location" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SelectStopsByRoute" Method="SelectStopsByRoute">
+    <Parameter Name="RouteNumber" Parameter="routeNumber" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="SelectStopsByRouteResult">
+      <Column Name="RouteNo" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="RouteStops" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="RouteDistances" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="TotalDistance" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="TripTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SelectAllRoutes" Method="SelectAllRoutes">
+    <ElementType Name="SelectAllRoutesResult">
+      <Column Name="RouteNo" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="RouteStops" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="RouteDistances" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="TotalDistance" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="TripTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

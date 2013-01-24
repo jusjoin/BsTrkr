@@ -1,0 +1,4 @@
+﻿.adminTracker table {background-color:green; border: 3px solid yellow; width:100%; height:100%}
+.adminTracker table td{ text-align: center; border: 1px solid white;}
+.adminTracker #theMap{width:100%; height:500px}
+#txtLatLongErr {background-color:Red;}

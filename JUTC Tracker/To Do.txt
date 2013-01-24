@@ -1,0 +1,42 @@
+								Prototype Fixing !!!!!!!!!!!!UTILIZE NODE OR AJAX!!!!!!!!!
+
+Priority
+--Completely rethink and redesign busroute table and system of speed and location identification for buses
+		since map will be updated at regular intervals the buses must be shown in between stops
+		try something with the distance the bus has travelled since last stop or away from origin
+--Add validation to add stop to ensure stop doesnt already exist
+
+
+Secondary
+-Admin page gridview to manage other tables
+-break delete stop dropdownbox into city/area/town and refresh after add stop
+-add tags to each stop so stops can be searched for by town, area, parish, shops nearby, street name, schools, businesses, attractions(link attractions to google searches)
+-add area which shows you buses going to which attraction(hope gardens, utech - BIG recognised places)
+-update to google maps api v3 code
+
+
+
+-Do user pages allow:
+		+see buses on map
+		-add profiles and user restrictions
+		-create event notification
+		-see timetable
+
+-Phone send message request
+-fix stopsToGo webservice
+
+
+Aesthetics
+-Information sent to user should  have timestamp and server's time so they know how long ago the bus was at the shown location
+-When you press ok on the marker dialog, have a button to send the data to whichever box you want, *this may need designing your own
+	dialog box (if the dialog box is java script and not .net **not sure so i need to check)
+-Add bus information to RFID Reader Sim
+-Use different colour marker based on colour of bus
+
+Ideas
+-Make call to database every 10 seconds and load all necessary data into global application state so that each person
+accessing the website doesn't cause a call to the database
+-Secure data connection from gps devices 
+
+DEV NOTES
+calling an event on a .net element with (null, null) arguements will safely trigger the event

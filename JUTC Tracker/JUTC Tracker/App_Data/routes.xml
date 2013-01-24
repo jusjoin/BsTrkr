@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<routes>
+  <route15>
+    <numStops>4</numStops>
+    <totDist>699</totDist>
+    <tripTime>5</tripTime>
+    <stop0>
+      <stopNo>HWTTC</stopNo>
+      <lattitude>18.0120950559066</lattitude>
+      <longitude>-76.7985588312149</longitude>
+      <location>HWT Transport Centre</location>
+      <type>Depot</type>
+    </stop0>
+    <dist0>95</dist0>
+    <stop1>
+      <stopNo>HAGPRKRD01</stopNo>
+      <lattitude>18.0100901492351</lattitude>
+      <longitude>-76.7985266447067</longitude>
+      <location>Hagley Park Road</location>
+      <type>BusStop</type>
+    </stop1>
+    <dist1>233</dist1>
+    <stop2>
+      <stopNo>HAGPRKRD02</stopNo>
+      <lattitude>18.0095289753432</lattitude>
+      <longitude>-76.8006187677383</longitude>
+      <location>Hagley Park Road</location>
+      <type>BusStop</type>
+    </stop2>
+    <dist2>371</dist2>
+    <stop3>
+      <stopNo>HAGPRKRD03</stopNo>
+      <lattitude>18.0092636925177</lattitude>
+      <longitude>-76.8039500713348</longitude>
+      <location>Hagley Park Road</location>
+      <type>BusStop</type>
+    </stop3>
+    <dist3>0</dist3>
+  </route15>
+  <route16>
+    <numStops>7</numStops>
+    <totDist>1859</totDist>
+    <tripTime>15</tripTime>
+    <stop0>
+      <stopNo>HWTTC</stopNo>
+      <lattitude>18.0120950559066</lattitude>
+      <longitude>-76.7985588312149</longitude>
+      <location>HWT Transport Centre</location>
+      <type>Depot</type>
+    </stop0>
+    <dist0>95</dist0>
+    <stop1>
+      <stopNo>HAGPRKRD01</stopNo>
+      <lattitude>18.0100901492351</lattitude>
+      <longitude>-76.7985266447067</longitude>
+      <location>Hagley Park Road</location>
+      <type>BusStop</type>
+    </stop1>
+    <dist1>233</dist1>
+    <stop2>
+      <stopNo>HAGPRKRD02</stopNo>
+      <lattitude>18.0095289753432</lattitude>
+      <longitude>-76.8006187677383</longitude>
+      <location>Hagley Park Road</location>
+      <type>BusStop</type>
+    </stop2>
+    <dist2>371</dist2>
+    <stop3>
+      <stopNo>HAGPRKRD03</stopNo>
+      <lattitude>18.0092636925177</lattitude>
+      <longitude>-76.8039500713348</longitude>
+      <location>Hagley Park Road</location>
+      <type>BusStop</type>
+    </stop3>
+    <dist3>410</dist3>
+    <stop4>
+      <stopNo>HAGPRKRD04</stopNo>
+      <lattitude>18.0085596707757</lattitude>
+      <longitude>-76.8076300621033</longitude>
+      <location>Hagley Park Road</location>
+      <type>BusStop</type>
+    </stop4>
+    <dist4>467</dist4>
+    <stop5>
+      <stopNo>HAGPRKRD05</stopNo>
+      <lattitude>18.0079372724008</lattitude>
+      <longitude>-76.8118250370026</longitude>
+      <location>Hagley Park Road</location>
+      <type>BusStop</type>
+    </stop5>
+    <dist5>283</dist5>
+    <stop6>
+      <stopNo>HAGPRKRD06</stopNo>
+      <lattitude>18.0059884370453</lattitude>
+      <longitude>-76.8143302202225</longitude>
+      <location>Hagley Park Road</location>
+      <type>BusStop</type>
+    </stop6>
+    <dist6>0</dist6>
+  </route16>
+  <route17AF>
+    <numStops>36</numStops>
+    <totDist>13946</totDist>
+    <tripTime>50</tripTime>
+    <stop0>
+      <stopNo>HWTTC</stopNo>
+      <lattitude>18.0120950559066</lattitude>
+      <longitude>-76.7985588312149</longitude>
+      <location>HWT Transport Centre</location>
+      <type>Depot</type>
+    </stop0>
+    <dist0>95</dist0>
+    <stop1>
+      <stopNo>HAGPRKRD01</stopNo>
+      <lattitude>18.0100901492351</lattitude>
+      <longitude>-76.7985266447067</longitude>
+      <location>Hagley Park Road</location>
+      <type>BusStop</type>
+    </stop1>
+    <dist1>233</dist1>
+    <stop2>
+      <stopNo>HAGPRKRD02</stopNo>
+      <lattitude>18.0095289753432</lattitude>
+      <longitude>-76.8006187677383</longitude>
+      <location>Hagley Park Road</location>
+      <type>BusStop</type>
+    </stop2>
+    <dist2>371</dist2>
+    <stop3>
+      <stopNo>HAGPRKRD03</stopNo>
+      <lattitude>18.0092636925177</lattitude>
+      <longitude>-76.8039500713348</longitude>
+      <location>Hagley Park Road</location>
+      <type>BusStop</type>
+    </stop3>
+    <dist3>410</dist3>
+    <stop4>
+      <stopNo>HAGPRKRD04</stopNo>
+      <lattitude>18.0085596707757</lattitude>
+      <longitude>-76.8076300621033</longitude>
+      <location>Hagley Park Road</location>
+      <type>BusStop</type>
+    </stop4>
+    <dist4>467</dist4>
+    <stop5>
+      <stopNo>HAGPRKRD05</stopNo>
+      <lattitude>18.0079372724008</lattitude>
+      <longitude>-76.8118250370026</longitude>
+      <location>Hagley Park Road</location>
+      <type>BusStop</type>
+    </stop5>
+    <dist5>283</dist5>
+    <stop6>
+      <stopNo>HAGPRKRD06</stopNo>
+      <lattitude>18.0059884370453</lattitude>
+      <longitude>-76.8143302202225</longitude>
+      <location>Hagley Park Road</location>
+      <type>BusStop</type>
+    </stop6>
+    <dist6>362</dist6>
+    <stop7>
+      <stopNo>HAGPRKRD07</stopNo>
+      <lattitude>18.0032232986004</lattitude>
+      <longitude>-76.8175220489502</longitude>
+      <location>Hagley Park Road</location>
+      <type>BusStop</type>
+    </stop7>
+    <dist7>443</dist7>
+    <stop8>
+      <stopNo>HAGPRKRD08</stopNo>
+      <lattitude>18.0004887278929</lattitude>
+      <longitude>-76.821448802948</longitude>
+      <location>Hagley Park Road</location>
+      <type>BusStop</type>
+    </stop8>
+    <dist8>333</dist8>
+    <stop9>
+      <stopNo>HAGPRKRD09</stopNo>
+      <lattitude>17.9984173643907</lattitude>
+      <longitude>-76.8243992328644</longitude>
+      <location>Hagley Park Road</location>
+      <type>BusStop</type>
+    </stop9>
+    <dist9>138</dist9>
+    <stop10>
+      <stopNo>HAGPRKRD10</stopNo>
+      <lattitude>17.9973714696347</lattitude>
+      <longitude>-76.8256115913391</longitude>
+      <location>Hagley Park Road</location>
+      <type>BusStop</type>
+    </stop10>
+    <dist10>301</dist10>
+    <stop11>
+      <stopNo>HAGPRKRD11</stopNo>
+      <lattitude>17.9943408907826</lattitude>
+      <longitude>-76.8282294273376</longitude>
+      <location>Hagley Park Road</location>
+      <type>BusStop</type>
+    </stop11>
+    <dist11>4272</dist11>
+    <stop12>
+      <stopNo>PTMRMALL01</stopNo>
+      <lattitude>17.970844485786</lattitude>
+      <longitude>-76.8662256002426</longitude>
+      <location>Portmore Mall</location>
+      <type>BusStop</type>
+    </stop12>
+    <dist12>458</dist12>
+    <stop13>
+      <stopNo>PSGFRTD01</stopNo>
+      <lattitude>17.9700892834472</lattitude>
+      <longitude>-76.8703347444534</longitude>
+      <location>Passage Fort Drive</location>
+      <type>BusStop</type>
+    </stop13>
+    <dist13>192</dist13>
+    <stop14>
+      <stopNo>PTMRPWY01</stopNo>
+      <lattitude>17.9666729730734</lattitude>
+      <longitude>-76.871874332428</longitude>
+      <location>Portmore Parkway</location>
+      <type>BusStop</type>
+    </stop14>
+    <dist14>297</dist14>
+    <stop15>
+      <stopNo>PTMRPWY02</stopNo>
+      <lattitude>17.9613123708594</lattitude>
+      <longitude>-76.8742454051971</longitude>
+      <location>Portmore Parkway</location>
+      <type>BusStop</type>
+    </stop15>
+    <dist15>158</dist15>
+    <stop16>
+      <stopNo>PTMRPWY03</stopNo>
+      <lattitude>17.9592073778867</lattitude>
+      <longitude>-76.8755784630775</longitude>
+      <location>Portmore Parkway</location>
+      <type>BusStop</type>
+    </stop16>
+    <dist16>181</dist16>
+    <stop17>
+      <stopNo>PTMRPWY04</stopNo>
+      <lattitude>17.9571482877804</lattitude>
+      <longitude>-76.8771341443062</longitude>
+      <location>Portmore Parkway</location>
+      <type>BusStop</type>
+    </stop17>
+    <dist17>170</dist17>
+    <stop18>
+      <stopNo>PTMRPWY05</stopNo>
+      <lattitude>17.9551886853325</lattitude>
+      <longitude>-76.8785959482193</longitude>
+      <location>Portmore Parkway</location>
+      <type>BusStop</type>
+    </stop18>
+    <dist18>127</dist18>
+    <stop19>
+      <stopNo>PTMRPWY06</stopNo>
+      <lattitude>17.9536730404189</lattitude>
+      <longitude>-76.8796849250793</longitude>
+      <location>Portmore Parkway</location>
+      <type>BusStop</type>
+    </stop19>
+    <dist19>96</dist19>
+    <stop20>
+      <stopNo>PRTHENDR01</stopNo>
+      <lattitude>17.9537240724455</lattitude>
+      <longitude>-76.8805432319641</longitude>
+      <location>Port Henderson Road</location>
+      <type>BusStop</type>
+    </stop20>
+    <dist20>262</dist20>
+    <stop21>
+      <stopNo>PRTHENDR02</stopNo>
+      <lattitude>17.9552907484962</lattitude>
+      <longitude>-76.882871389389</longitude>
+      <location>Port Henderson Road</location>
+      <type>BusStop</type>
+    </stop21>
+    <dist21>203</dist21>
+    <stop22>
+      <stopNo>PRTHENDR03</stopNo>
+      <lattitude>17.9563981300342</lattitude>
+      <longitude>-76.8846791982651</longitude>
+      <location>Port Henderson Road</location>
+      <type>BusStop</type>
+    </stop22>
+    <dist22>158</dist22>
+    <stop23>
+      <stopNo>PRTHENDR04</stopNo>
+      <lattitude>17.9571533908835</lattitude>
+      <longitude>-76.8860900402069</longitude>
+      <location>Port Henderson Road</location>
+      <type>BusStop</type>
+    </stop23>
+    <dist23>556</dist23>
+    <stop24>
+      <stopNo>MUBLVD01</stopNo>
+      <lattitude>17.958418955884</lattitude>
+      <longitude>-76.8910789489746</longitude>
+      <location>Municipal Boulevard</location>
+      <type>BusStop</type>
+    </stop24>
+    <dist24>205</dist24>
+    <stop25>
+      <stopNo>MUBLVD02</stopNo>
+      <lattitude>17.9574289582278</lattitude>
+      <longitude>-76.8929028511047</longitude>
+      <location>Municipal Boulevard</location>
+      <type>BusStop</type>
+    </stop25>
+    <dist25>232</dist25>
+    <stop26>
+      <stopNo>MUBLVD03</stopNo>
+      <lattitude>17.9566941110217</lattitude>
+      <longitude>-76.8949842453003</longitude>
+      <location>Municipal Boulevard</location>
+      <type>BusStop</type>
+    </stop26>
+    <dist26>306</dist26>
+    <stop27>
+      <stopNo>MUBLVD04</stopNo>
+      <lattitude>17.9553519863661</lattitude>
+      <longitude>-76.8977147340775</longitude>
+      <location>Municipal Boulevard</location>
+      <type>BusStop</type>
+    </stop27>
+    <dist27>56</dist27>
+    <stop28>
+      <stopNo>BRAE01</stopNo>
+      <lattitude>17.953877168437</lattitude>
+      <longitude>-76.8980956077576</longitude>
+      <location>Braeton Road</location>
+      <type>BusStop</type>
+    </stop28>
+    <dist28>124</dist28>
+    <stop29>
+      <stopNo>BRAE02</stopNo>
+      <lattitude>17.9504018567844</lattitude>
+      <longitude>-76.8973070383072</longitude>
+      <location>Braeton Road</location>
+      <type>BusStop</type>
+    </stop29>
+    <dist29>114</dist29>
+    <stop30>
+      <stopNo>GPTMR01</stopNo>
+      <lattitude>17.9472581974036</lattitude>
+      <longitude>-76.8980419635773</longitude>
+      <location>Greater Portmore</location>
+      <type>BusStop</type>
+    </stop30>
+    <dist30>153</dist30>
+    <stop31>
+      <stopNo>GPTMR02</stopNo>
+      <lattitude>17.9470055794924</lattitude>
+      <longitude>-76.8994179368019</longitude>
+      <location>Greater Portmore</location>
+      <type>BusStop</type>
+    </stop31>
+    <dist31>402</dist31>
+    <stop32>
+      <stopNo>GPTMR03</stopNo>
+      <lattitude>17.9459746905392</lattitude>
+      <longitude>-76.9030228257179</longitude>
+      <location>Greater Portmore</location>
+      <type>BusStop</type>
+    </stop32>
+    <dist32>308</dist32>
+    <stop33>
+      <stopNo>GPTMR04</stopNo>
+      <lattitude>17.9423792907205</lattitude>
+      <longitude>-76.9003808498383</longitude>
+      <location>Greater Portmore</location>
+      <type>BusStop</type>
+    </stop33>
+    <dist33>307</dist33>
+    <stop34>
+      <stopNo>GPTMR05</stopNo>
+      <lattitude>17.9386740897016</lattitude>
+      <longitude>-76.8977522850037</longitude>
+      <location>Greater Portmore</location>
+      <type>BusStop</type>
+    </stop34>
+    <dist34>254</dist34>
+    <stop35>
+      <stopNo>GPTMR06</stopNo>
+      <lattitude>17.9370409186153</lattitude>
+      <longitude>-76.9000053405762</longitude>
+      <location>Greater Portmore</location>
+      <type>BusStop</type>
+    </stop35>
+    <dist35>171</dist35>
+  </route17AF>
+</routes>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="JUTC" Class="JUTCDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=JUTC;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="JUTCConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.PhoneMessage" Member="PhoneMessages">
+    <Type Name="PhoneMessage">
+      <Column Name="UserName" Type="System.String" DbType="VarChar(25) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Time" Type="System.TimeSpan" DbType="Time NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Message" Type="System.String" DbType="VarChar(140) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

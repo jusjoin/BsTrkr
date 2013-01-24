@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="test">
+        <s:complexType />
+      </s:element>
+      <s:element name="testResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="testResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SignalStop">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="busNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateOfStop" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="timeOfStop" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="tabledTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="stopNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="routeNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="speed" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SignalStopResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SignalStopResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PassengerNotice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="stopNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="routeNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="busNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PassengerNoticeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PassengerNoticeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="testSoapIn">
+    <wsdl:part name="parameters" element="tns:test" />
+  </wsdl:message>
+  <wsdl:message name="testSoapOut">
+    <wsdl:part name="parameters" element="tns:testResponse" />
+  </wsdl:message>
+  <wsdl:message name="SignalStopSoapIn">
+    <wsdl:part name="parameters" element="tns:SignalStop" />
+  </wsdl:message>
+  <wsdl:message name="SignalStopSoapOut">
+    <wsdl:part name="parameters" element="tns:SignalStopResponse" />
+  </wsdl:message>
+  <wsdl:message name="PassengerNoticeSoapIn">
+    <wsdl:part name="parameters" element="tns:PassengerNotice" />
+  </wsdl:message>
+  <wsdl:message name="PassengerNoticeSoapOut">
+    <wsdl:part name="parameters" element="tns:PassengerNoticeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BusEventsSoap">
+    <wsdl:operation name="test">
+      <wsdl:input message="tns:testSoapIn" />
+      <wsdl:output message="tns:testSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SignalStop">
+      <wsdl:input message="tns:SignalStopSoapIn" />
+      <wsdl:output message="tns:SignalStopSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PassengerNotice">
+      <wsdl:input message="tns:PassengerNoticeSoapIn" />
+      <wsdl:output message="tns:PassengerNoticeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BusEventsSoap" type="tns:BusEventsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="test">
+      <soap:operation soapAction="http://tempuri.org/test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignalStop">
+      <soap:operation soapAction="http://tempuri.org/SignalStop" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PassengerNotice">
+      <soap:operation soapAction="http://tempuri.org/PassengerNotice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BusEventsSoap12" type="tns:BusEventsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="test">
+      <soap12:operation soapAction="http://tempuri.org/test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignalStop">
+      <soap12:operation soapAction="http://tempuri.org/SignalStop" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PassengerNotice">
+      <soap12:operation soapAction="http://tempuri.org/PassengerNotice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BusEvents">
+    <wsdl:port name="BusEventsSoap" binding="tns:BusEventsSoap">
+      <soap:address location="http://localhost/JUTCWebService/BusEvents.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BusEventsSoap12" binding="tns:BusEventsSoap12">
+      <soap12:address location="http://localhost/JUTCWebService/BusEvents.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

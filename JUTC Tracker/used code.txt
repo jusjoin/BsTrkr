@@ -1,0 +1,190 @@
+﻿
+HOW TO USE A LIST INSIDE A DICTIONARY
+
+Taken from http://social.msdn.microsoft.com/forums/en-US/csharpgeneral/thread/11e7a34e-2286-4c77-9254-18224939df2c
+I recommend that you use a List<> instead of an arraylist....you are already are using the generic Dictionary...
+why bother with the arraylist? Here is a sample which shows the usage of the list<> and the proper way to enumerate 
+a dictionary which I think will help you in your understanding.
+
+
+    Dictionary<string, List<string>> GroupsHash = new Dictionary<string, List<string>>();
+
+    List<string> initial = new List<string>();
+
+    initial.Add("One");
+    initial.Add("Two");
+    initial.Add("Three");
+
+    GroupsHash.Add("Test1", initial);
+
+    initial = new List<string>(); // Reference now swapped to different object
+
+    initial.Add("Three");
+    initial.Add("Four");
+    initial.Add("Five");
+
+    GroupsHash.Add("Test2", initial);
+
+    initial = null; // Just unhooks the reference to the list<>
+  
+    // View all via enumeration
+    foreach (KeyValuePair<string, List<string>> kvp in GroupsHash)
+    {
+        List<string> list = kvp.Value as List<string>;
+        if (list == null)
+            throw new Exception("Something is horribly wrong!");
+
+        foreach (string str in list)
+            Console.WriteLine("Key ({0}) {1}", kvp.Key, str);
+    }
+
+
+ // Access an individual item
+    Console.WriteLine("{0}Individual Item: {1} -> {2}{0}", Environment.NewLine, "Test1", GroupsHash["Test1"][1]);
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Taken from http://www.dotnetfunda.com/articles/article613-background-processes-in-asp-net-web-applications.aspx
+
+	This article talks about various approaches in creating background processing in web application using C#.
+
+Introduction
+
+
+HTTP is a stateless protocol. The advantage of a stateless protocol is that hosts do not need to retain information about users between requests. Web Server is a Http server and will service only when there is request.                 
+ 
+There are situations where we do lot of background activities like loading non-transactional information from the data base, web service calls to get external data, long and complex calculations like reporting etc. This requires web applications to process them in a background thread without blocking the main thread.
+ 
+Creating Background process in Web Applications
+
+
+Typically, in a web application the web page would be refreshed automatically very often to get the details from the server. This design will have lot of side effects as the users may be in between some actions.
+ 
+Recently I went through the System.ComponentModel namespace from MSDN. I came across a class called BackgroundWorker.  The BackgroundWorker component gives the flexibility to execute time-consuming operations asynchronously ("in the background"), on a thread different from the application's main UI thread.
+ 
+Using BackgroundWorker
+ 
+In the Global.asax - Application_Start event, we can initiate the BackgroundWorker process and then call the RunWorkerAsync() method. RunWorkerAsync() starts executing the background operation. How do we define what background operation to be executed by the BackgroundWorker?
+ 
+ 
+BackgroundWorker defines an event “DoWork”. This event is raised when RunWorkerAsync() method is called. DoWorkEventHandler Delegate should be declared to handle DoWork event.
+ 
+// Code that runs on application startup
+BackgroundWorker worker = new BackgroundWorker();
+worker.DoWork += new DoWorkEventHandler(DoWork);
+worker.WorkerReportsProgress = false;
+worker.WorkerSupportsCancellation = true;
+worker.RunWorkerCompleted +=
+       new RunWorkerCompletedEventHandler(WorkerCompleted);
+// Calling the DoWork Method Asynchronously
+worker.RunWorkerAsync();
+ 
+As soon as RunWorkerAsync() method is called, the DoWorkEventHandler is invoked asynchronously.  
+
+ 
+private static void DoWork(object sender, DoWorkEventArgs e)
+{
+     // Long running background operation
+}
+ 
+WorkerReportsProgress property is defined as false in my case. But if you need the frequent updates operations you can turn it on and ProgressChangedEvent should be used to collect information about the progress.
+ 
+WorkerSupportsCancellation property when set to true, the asynchronous calls can be cancelled. CancelAsync() should be used to cancel the asynchronous operation.
+ 
+if (worker != null)
+    worker.CancelAsync();
+ 
+ 
+RunWorkerCompleted event should be subscribed when the background operations is completed or exception occurred while processing.  
+ 
+worker.RunWorkerCompleted +=
+       new RunWorkerCompletedEventHandler(WorkerCompleted);
+ 
+private static void WorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+    {
+        // log when the worker is completed.
+    }
+ 
+ 
+Putting all Together
+ 
+Following sample was created to pull out currency exchange rates from a different rate server using web service. We have a map object in the cache to maintain the latest rates information at any point. So the web service request is made as an asynchronous background operation to pull out rates and updating the information in the cache (CacheManager is a custom cache implementation).
+ 
+In the Application_End Event, asynchronous operation is cancelled.
+ 
+<script RunAt="server">
+          
+    void Application_Start(object sender, EventArgs e)
+    {
+        // Code that runs on application startup
+        BackgroundWorker worker = new BackgroundWorker();
+        worker.DoWork += new DoWorkEventHandler(DoWork);
+        worker.WorkerReportsProgress = false;
+        worker.WorkerSupportsCancellation = true;
+        worker.RunWorkerCompleted +=
+               new RunWorkerCompletedEventHandler(WorkerCompleted);
+ 
+        //Add this BackgroundWorker object instance to the cache (custom cache implementation)
+        //so it can be cleared when the Application_End event fires.
+        CacheManager.Add("BackgroundWorker", worker);
+       
+        // Calling the DoWork Method Asynchronously
+        worker.RunWorkerAsync(); //we can also pass parameters to the async method....
+       
+    }
+ 
+    private static void DoWork(object sender, DoWorkEventArgs e)
+    {
+       
+        // Sync up the Details
+        // Loading ForEx Rates from external vendor System using Web Service
+        if (CacheManager.IsExists("FxRates"))
+        {
+            CacheManager.Remove("FxRates");
+        }
+        FxRates objFxRates = new FxRates();
+        CacheManager.Add("FxRates", objFxRates.GetRates());
+    }
+   
+    private static void WorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+    {
+        BackgroundWorker worker = sender as BackgroundWorker;
+        if (worker != null)
+        {
+            // sleep for 20 secs and again call DoWork to get FxRates..we can increase the time to sleep and make it configurable to the needs
+            System.Threading.Thread.Sleep(20000);
+            worker.RunWorkerAsync();
+        }
+    }
+ 
+    void Application_End(object sender, EventArgs e)
+    {
+        //  Code that runs on application shutdown
+        //If background worker process is running then clean up that object.
+        if (CacheManager.IsExists("BackgroundWorker"))
+        {
+            BackgroundWorker worker = (BackgroundWorker)CacheManager.Get("BackgroundWorker");
+            if (worker != null)
+                worker.CancelAsync();
+        }
+    }
+        
+</script>
+
+
+remove google maps listener
+clearListeners(instance:Object, eventName:string);
+//In your case:
+google.maps.event.clearListeners(map, 'bounds_changed');
+
+
+Check if marker in viewport bounds
+The LatLngBounds object comes with a contains() method which takes a LatLng point and returns true if the point happens to be within the bounds, or false if outside.
+
+Therefore, what about something like the following?
+
+function check_is_in_or_out(marker){
+  return map.getBounds().contains(marker.getPosition());
+}

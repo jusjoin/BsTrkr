@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 11.625" name="JUTC">
+  <DataContextMoniker Name="/JUTCDataContext" />
+  <nestedChildShapes>
+    <classShape Id="92e3954f-0f36-4c7f-bfe1-04b1cb9d9890" absoluteBounds="7.875, 3.625, 2, 1.3862939453125">
+      <DataClassMoniker Name="/JUTCDataContext/Bus" />
+      <nestedChildShapes>
+        <elementListCompartment Id="23efc6af-5e65-4253-b414-f606b32c0979" absoluteBounds="7.8900000000000006, 4.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3c1d381c-bcf9-4e2e-a3cb-59125caf1f5b" absoluteBounds="0.5, 6.875, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/JUTCDataContext/TimeTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="87e4a87a-a926-4f91-b248-b676c8c01817" absoluteBounds="0.51500000000000012, 7.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bd4a329b-97aa-4b4b-a86b-8098b34c415a" absoluteBounds="6.5, 5.875, 2, 3.1170068359374987">
+      <DataClassMoniker Name="/JUTCDataContext/BusRoute" />
+      <nestedChildShapes>
+        <elementListCompartment Id="23342c67-7b63-482e-8a60-9a572ed93c90" absoluteBounds="6.515, 6.335, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="143d00ea-e138-49a0-8fc2-4a40bf124e57" absoluteBounds="0.5, 1.125, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/JUTCDataContext/PassengerNotice" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0f357242-54c9-40d3-8742-405a41acb868" absoluteBounds="0.51500000000000012, 1.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0c0035b5-d04e-45e3-823e-ac4cbc1e0f81" absoluteBounds="6.75, 1.375, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/JUTCDataContext/PhoneMessage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="96c7e6df-b2bd-4b98-994d-6217390c8d64" absoluteBounds="6.765, 1.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f604214c-2a7c-451f-b9a9-00c2aa763817" absoluteBounds="2.875, 6.625, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/JUTCDataContext/Route" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d9b38773-a62e-43e4-b483-dfcf8d9f22fa" absoluteBounds="2.89, 7.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="21f798bf-c136-4178-811e-a82c90cb0ba5" absoluteBounds="3.75, 3.625, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/JUTCDataContext/Stop" />
+      <nestedChildShapes>
+        <elementListCompartment Id="14c96ce7-2bb7-45cc-a9ab-891df116a9b9" absoluteBounds="3.765, 4.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c594111c-08ee-40cc-844c-5dddd6a68b0e" absoluteBounds="3.5, 9.375, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/JUTCDataContext/StopLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e4dd5c60-67dd-4836-85d0-eb5ebe28ba03" absoluteBounds="3.515, 9.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.1875 : 5.0112939453125); (8.1875 : 5.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/JUTCDataContext/Bus/Buse_BusRoute" />
+      <nodes>
+        <classShapeMoniker Id="92e3954f-0f36-4c7f-bfe1-04b1cb9d9890" />
+        <classShapeMoniker Id="bd4a329b-97aa-4b4b-a86b-8098b34c415a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.875 : 7.56814697265625); (2.5 : 7.56814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/JUTCDataContext/Route/Route_TimeTable" />
+      <nodes>
+        <classShapeMoniker Id="f604214c-2a7c-451f-b9a9-00c2aa763817" />
+        <classShapeMoniker Id="3c1d381c-bcf9-4e2e-a3cb-59125caf1f5b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.875 : 7.51044840494792); (6.5 : 7.51044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/JUTCDataContext/Route/Route_BusRoute" />
+      <nodes>
+        <classShapeMoniker Id="f604214c-2a7c-451f-b9a9-00c2aa763817" />
+        <classShapeMoniker Id="bd4a329b-97aa-4b4b-a86b-8098b34c415a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.28125 : 6.625); (3.28125 : 2.10659912109375); (2.5 : 2.10659912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/JUTCDataContext/Route/Route_PassengerNotice" />
+      <nodes>
+        <classShapeMoniker Id="f604214c-2a7c-451f-b9a9-00c2aa763817" />
+        <classShapeMoniker Id="143d00ea-e138-49a0-8fc2-4a40bf124e57" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.75 : 4.51044840494792); (1.5 : 4.51044840494792); (1.5 : 3.0881982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/JUTCDataContext/Stop/Stop_PassengerNotice" />
+      <nodes>
+        <classShapeMoniker Id="21f798bf-c136-4178-811e-a82c90cb0ba5" />
+        <classShapeMoniker Id="143d00ea-e138-49a0-8fc2-4a40bf124e57" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.21875 : 5.0112939453125); (9.21875 : 10.4359269791667); (5.5 : 10.4359269791667)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/JUTCDataContext/Bus/Buse_StopsLog" />
+      <nodes>
+        <classShapeMoniker Id="92e3954f-0f36-4c7f-bfe1-04b1cb9d9890" />
+        <classShapeMoniker Id="c594111c-08ee-40cc-844c-5dddd6a68b0e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.1875 : 8.39589680989583); (4.1875 : 9.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/JUTCDataContext/Route/Route_StopsLog" />
+      <nodes>
+        <classShapeMoniker Id="f604214c-2a7c-451f-b9a9-00c2aa763817" />
+        <classShapeMoniker Id="c594111c-08ee-40cc-844c-5dddd6a68b0e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.21875 : 5.39589680989583); (5.21875 : 9.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/JUTCDataContext/Stop/Stop_StopsLog" />
+      <nodes>
+        <classShapeMoniker Id="21f798bf-c136-4178-811e-a82c90cb0ba5" />
+        <classShapeMoniker Id="c594111c-08ee-40cc-844c-5dddd6a68b0e" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

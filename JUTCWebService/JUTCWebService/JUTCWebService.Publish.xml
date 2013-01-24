@@ -1,0 +1,8 @@
+<publishData>
+  <publishTarget publishUrl="http://localhost/JUTCWebService/">
+    <file relUrl="bin/JUTCWebService.pdb" publishTime="05/31/2010 01:10:15" />
+    <file relUrl="BusEvents.asmx" publishTime="05/19/2010 15:22:10" />
+    <file relUrl="bin/JUTCWebService.dll" publishTime="05/31/2010 01:10:19" />
+    <file relUrl="Web.config" publishTime="05/19/2010 15:18:07" />
+  </publishTarget>
+</publishData>
